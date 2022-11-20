@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Maps/Title.unity
     guid: 94e299b67c983467286ccbdfd01e1f60
   - enabled: 1
+    path: Assets/Maps/Planet 1.5.unity
+    guid: 806f6a4da178a4fc5ba6fe9d80aa0538
+  - enabled: 1
     path: Assets/Maps/Planet 1.unity
     guid: 569166631a571471fa6dddb4334dfae2
   - enabled: 1
@@ -44,3 +47,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Maps/Splash.unity
     guid: 2def5e3ff81cd40efaae13a8a4d93747
+  m_configObjects: {}

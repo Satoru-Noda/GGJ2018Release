@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LunchMenu : MonoBehaviour {
+public class LunchStage : MonoBehaviour {
 
-	public static int StageNumber = 12;
+	public int StageNumber = 12;	//ビルド設定のシーン番号 Splashシーン
 
 	void Update () {
 		if (Input.GetMouseButtonDown (0)) {

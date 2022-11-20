@@ -26,7 +26,7 @@ public class PlayerMove : MonoBehaviour
 			float force = forceVec.magnitude;
 			GetComponent<Rigidbody> ().AddForce (force * forceVec.normalized * FORCE);
 			isMove = true;
-			PlanetManager.NextState ();
+			GameSystemManager.NextState ();
 		}
 	}
 }

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlanetManager : MonoBehaviour
+public class GameSystemManager : MonoBehaviour
 {
-	public AudioClip soundEffect_clear;
+	public AudioClip stageClearSoundEffect;
 	private AudioSource	audioSource;
 
 	private static int state;
 	private float time = 0;
-	public float MARGE_TIME = 1;
+	public float INTERVAL_TIME = 1.0f;
 
 	public static int TYPE_BEFORE_THROW = 0;
 	public static int TYPE_THROW = 1;
@@ -34,7 +34,7 @@ public class PlanetManager : MonoBehaviour
 			o.SetActive (isDebug);
 		}
 	}
-	
+
 	// Update is called once per frame
 	void Update ()
 	{
@@ -45,9 +45,9 @@ public class PlanetManager : MonoBehaviour
 		} else if (state == TYPE_GAMECLEAR) {
 			if (time == 0) {
 				time = Time.time;
-				audioSource.clip = soundEffect_clear;
+				audioSource.clip = stageClearSoundEffect;
 				audioSource.Play ();
-			} else if (Time.time - time > MARGE_TIME) {
+			} else if (Time.time - time > INTERVAL_TIME) {
 				state = TYPE_GAMECLEAR_MOVE;
 			}
 		} else if (state == TYPE_GAMECLEAR_MOVE) {
@@ -77,6 +77,20 @@ public class PlanetManager : MonoBehaviour
 	{
 		if (state == TYPE_AFTER_THROW) {
 			LevelManager.Reset ();
+		}
+	}
+
+	private void PlayEndSoundAndEndingSet()
+	{
+		if (time == 0)
+		{
+			time = Time.time;
+			audioSource.clip = stageClearSoundEffect;
+			audioSource.Play();
+		}
+		else if (Time.time - time > INTERVAL_TIME)
+		{
+			state = TYPE_GAMECLEAR_MOVE;
 		}
 	}
 

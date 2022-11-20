@@ -14,25 +14,25 @@ public class PlanetHit : MonoBehaviour
 	{
 	}
 
-	void OnCollisionEnter (Collision other)
+	void OnCollisionEnter (Collision hit)
 	{//Playerタグでなければ、そのままスルー。Playerタグ以外はlostクラスへ
-		if (!"Player".Equals (other.gameObject.tag)) {
+		if (!"Player".Equals (hit.gameObject.tag)) {
 			return;
 		}
-		lost (other.gameObject);
+		lost (hit.gameObject);
 	}
 		
 	private void lost (GameObject player)
 	{//ガス惑星（じしん）の衝突制御
 		switch (HitType) {
 		case 0:
-			PlanetManager.Clear ();
+			GameSystemManager.Clear ();
 
 			return;
 		case 1:
 			player.SetActive (false);
 			this.gameObject.SetActive (false);
-			PlanetManager.Over ();
+			GameSystemManager.Over ();
 			return;
 		default :
 			return;

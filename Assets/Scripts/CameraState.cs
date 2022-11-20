@@ -20,7 +20,7 @@ public class CameraState : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (PlanetManager.GetState () == 2) {
+		if (GameSystemManager.GetState () == GameSystemManager.TYPE_AFTER_THROW) {
 			transform.position = camera_pos2
 			+ calcPos (Player.transform.position, (new Vector3 (1, 1, 0)));
 		}
